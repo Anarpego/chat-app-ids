@@ -4,7 +4,7 @@ export const fetchSinToken = async (endpoint, data, method = 'GET') => {
 
 
     //const url = `${baseURL}/${endpoint}`
-    const url = `http://localhost:8080/api/${endpoint}`;
+    const url = `https://umgsocial.tech/api/${endpoint}`;
     
     //console.log(url)
     if (method === 'GET') {
@@ -29,7 +29,7 @@ export const fetchConToken = async (endpoint, data, method = 'GET') => {
 
 
     //const url = `${baseURL}/${endpoint}`;
-    const url = `http://localhost:8080/api/${endpoint}`;
+    const url = `https://umgsocial.tech/api/${endpoint}`;
     const token = localStorage.getItem('token') || ''
 
     // console.log(url)

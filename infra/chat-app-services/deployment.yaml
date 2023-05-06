@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatappservices
+  labels:
+    app: chatappservices
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: chatappservices
+  template:
+    metadata:
+      labels:
+        app: chatappservices
+    spec:
+      #serviceAccountName: secret-ksa
+      imagePullSecrets:
+        - name: gcr-json-key
+      containers:
+      - name: chatappservices 
+        image: gcr.io/finalproject-tp-production/chatapp-services:latest
+        env:
+        
+        - name: PORT
+          value: "80"
+        - name: DB_CNN_STRING
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-conn-string
+              key: password_file
+        - name: JWT_KEY
+          valueFrom:
+            secretKeyRef:
+              name: jwt-conn-string
+              key: password_file  
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: "200m"
+          requests:
+            cpu: "100m"
