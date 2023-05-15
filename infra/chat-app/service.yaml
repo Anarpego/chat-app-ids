@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: chatapp-frontend-service
 spec:
-  #type: LoadBalancer
   selector:
     app: chatappfrontend
   ports:

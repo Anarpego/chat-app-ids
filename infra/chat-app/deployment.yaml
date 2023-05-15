@@ -18,8 +18,7 @@ spec:
         - name: gcr-json-key
       containers:
       - name: chatappfrontend 
-        image: gcr.io/finalproject-tp-production/chatappfrontend:latest
-        # TODO:
+        image: gcr.io/umg-social-tech/front:v1
         env:
         - name: REACT_APP_API_URL
           value: https://umgsocial.tech/api

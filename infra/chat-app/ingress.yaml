@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: chatapp-frontend-ingress
-  namespace: chat-app
+  namespace: front
   annotations:
     kubernetes.io/ingress.class: "nginx"
     kubernetes.io/tls-acme: "true"
@@ -11,10 +11,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - www.umgsocial.tech
+    - chat.umgsocial.tech
     secretName: chat-app-frontend-tls
   rules:
-    - host: "www.umgsocial.tech"
+    - host: "chat.umgsocial.tech"
       http:
         paths:
           - pathType: ImplementationSpecific

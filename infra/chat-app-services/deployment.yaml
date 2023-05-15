@@ -14,14 +14,12 @@ spec:
       labels:
         app: chatappservices
     spec:
-      #serviceAccountName: secret-ksa
       imagePullSecrets:
         - name: gcr-json-key
       containers:
       - name: chatappservices 
-        image: gcr.io/finalproject-tp-production/chatapp-services:latest
+        image: gcr.io/umg-social-tech/back:v1
         env:
-        
         - name: PORT
           value: "80"
         - name: DB_CNN_STRING
