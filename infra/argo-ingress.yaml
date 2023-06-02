@@ -13,7 +13,7 @@ spec:
     - argocd.umgsocial.tech
     secretName: argocd-tls
   rules:
-  - host: argocd.umgsocial.tech
+  - host: "argocd.umgsocial.tech"
     http:
       paths:
       - path: /
