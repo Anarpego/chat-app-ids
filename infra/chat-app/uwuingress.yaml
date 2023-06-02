@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: uwuchatapp-frontend-ingress
+  namespace: front
+  annotations:
+    kubernetes.io/ingress.class: gce
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/issuer: letsencrypt-production
+spec:
+  tls:
+  - hosts:
+    - uwu.umgsocial.tech
+    secretName: uwuchatapp-frontend-tls
+  rules:
+  - host: uwu.umgsocial.tech
+    http:
+      paths:
+      - path: /auth/login
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: uwuchatapp-frontend-service
+            port:
+              number: 80

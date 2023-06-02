@@ -26,9 +26,9 @@ spec:
           value: https://umgsocial.tech/
 
         ports:
-        - containerPort: 80
+        - containerPort: 3000
         resources:
           limits:
-            cpu: 500m
+            cpu: 900m
           requests:
-            cpu: 200m
+            cpu: 500m

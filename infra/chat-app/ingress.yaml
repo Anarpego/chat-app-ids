@@ -18,7 +18,7 @@ spec:
       http:
         paths:
           - pathType: ImplementationSpecific
-            path: /
+            path: /auth/login
             backend:
               service:
                 name: chatapp-frontend-service
