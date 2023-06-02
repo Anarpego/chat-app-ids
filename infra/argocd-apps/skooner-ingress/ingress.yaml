@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dashboard-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+
+spec:
+  tls:
+  - hosts:
+    - dashboard.umgsocial.tech
+    secretName: skooner-domain-secret
+  rules:
+    - host: "dashboard.umgsocial.tech"
+      http:
+        paths:
+          - pathType: ImplementationSpecific
+            path: /
+            backend:
+              service:
+                name: skooner
+                port:
+                  number: 80

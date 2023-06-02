@@ -10,16 +10,16 @@ metadata:
 spec:
   tls:
   - hosts: 
-    - argo.umgsocial.tech
-    secretName: argocd-secret-domain
+    - argocd.umgsocial.tech
+    secretName: argocd-tls
   rules:
-  - host: argo.umgsocial.tech
+  - host: argocd.umgsocial.tech
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: argocd-server
+            name: my-argo-cd-argocd-server
             port:
               name: https
